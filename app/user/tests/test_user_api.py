@@ -144,7 +144,7 @@ class PrivateUserAPITests(TestCase):
         }
 
         res = self.client.patch(ME_URL, payload)
-        self.refresh_from_db()
+        self.user.refresh_from_db()
 
         self.assertEqual(self.user.name, payload['name'])
         self.assertTrue(self.user.check_password(payload['password']))
